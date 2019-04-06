@@ -1,0 +1,34 @@
+//@version=3
+study("Remo_Script")
+
+fast = 10, slow = 70
+pesce = ema(close, fast)
+mare = sma(close, slow)
+res = pesce - mare
+
+signal = sma(res, 5) // = res
+
+//ACQUISTO
+
+tuffo_pesce=roc(pesce,15)
+onde_mare=roc(mare,15)
+
+//ATTENZIONE: per ogni picco usa solo i dati precedenti e MAI quelli successivi!!!
+
+lung = 150
+s = 0.1
+for i = 1 to lung [1]
+    s := s + signal[i]
+s := s / lung
+
+acq = if roc(close, 3) > 0.3 and signal>=0 and tuffo_pesce>0.2 and onde_mare>0 and s<0
+    800
+else
+	0
+
+
+plot(acq, color=white)
+
+//plot(pesce-12000, color=red)
+//plot(mare-12000, color=blue)
+//plot(signal, color=green)
