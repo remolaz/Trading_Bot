@@ -26,3 +26,8 @@ npm install --save node-telegram-bot-api
 export NODE_PATH=/usr/local/node_modules (include i moduli che ho installato nell’ambiente di Node)
 
 node fill2.js
+
+
+GitHub Whatsapp Bot e Trading Bot
+npm install -g gdax tradingtoolkit --> non usare -g perche fa global, installa invece con -s per salvarlo nel proprio in the local node_modules folder
+npm init crea un nuovo package
